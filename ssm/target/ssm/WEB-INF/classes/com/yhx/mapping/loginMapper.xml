@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.yhx.mapper.LoginMapper">
+    <select id="getLogin" parameterType="java.lang.String" 
+		resultMap="loginResultMap">
+		 select * from login where username=#{username}
+	</select>
+
+    <!-- resultType查询出列明和属性名必须一直， resultMap则可以对改变的列明进行map映射-->
+    <resultMap type="com.yhx.po.Login" id="loginResultMap">
+        <id column="id" property="id" />
+        <result column="username" property="username" />
+        <result column="password" property="password" />
+    </resultMap>
+    
+    
+</mapper>
